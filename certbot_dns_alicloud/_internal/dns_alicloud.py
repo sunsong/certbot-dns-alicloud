@@ -26,7 +26,7 @@ class Authenticator(dns_common.DNSAuthenticator):
 
     description = ('Obtain certificates using a DNS TXT record (if you are using AliCloud for '
                    'DNS).')
-    ttl = 120
+    ttl = 600  # AliCloud DNS requires TTL to be between 600 and 86400 seconds
 
     def __init__(self, *args: Any, **kwargs: Any) -> None:
         super().__init__(*args, **kwargs)
