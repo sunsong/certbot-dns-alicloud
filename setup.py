@@ -4,7 +4,7 @@ import sys
 from setuptools import find_packages
 from setuptools import setup
 
-version = '0.0.1'
+version = '0.0.2'
 
 install_requires = [
     'aliyun-python-sdk-core>=2.13.15',
