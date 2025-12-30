@@ -61,7 +61,7 @@ class AliCloudClientTest(unittest.TestCase):
         # Mock _get_domain_name_and_rr
         self.client._get_domain_name_and_rr = mock.MagicMock(return_value=('example.com', '_acme-challenge'))
 
-        self.client.add_txt_record('example.com', '_acme-challenge.example.com', 'content', 120)
+        self.client.add_txt_record('example.com', '_acme-challenge.example.com', 'content', 600)
 
         self.mock_acs_client.do_action_with_exception.assert_called()
         call_args = self.mock_acs_client.do_action_with_exception.call_args[0][0]
@@ -79,7 +79,7 @@ class AliCloudClientTest(unittest.TestCase):
 
         from certbot import errors
         with self.assertRaises(errors.PluginError):
-             self.client.add_txt_record('example.com', '_acme-challenge.example.com', 'content', 120)
+             self.client.add_txt_record('example.com', '_acme-challenge.example.com', 'content', 600)
 
     def test_del_txt_record(self):
         self.client._get_domain_name_and_rr = mock.MagicMock(return_value=('example.com', '_acme-challenge'))
