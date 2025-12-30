@@ -38,7 +38,7 @@ class AuthenticatorTest(test_util.TempDirTestCase, dns_test_common.BaseAuthentic
 
     def test_perform(self):
         self.auth.perform([self.achall])
-        self.mock_client.add_txt_record.assert_called_with(DOMAIN, '_acme-challenge.' + DOMAIN, mock.ANY, 120)
+        self.mock_client.add_txt_record.assert_called_with(DOMAIN, '_acme-challenge.' + DOMAIN, mock.ANY, 600)
 
     def test_cleanup(self):
         self.auth._attempt_cleanup = True
